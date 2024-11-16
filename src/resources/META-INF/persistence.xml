@@ -1,0 +1,30 @@
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.1">
+    <persistence-unit name="meuPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        
+        <class>com.seuprojeto.model.Empresa</class>
+        <class>com.seuprojeto.model.PoliticaAntirracista</class>
+        
+        <properties>
+            <!-- Configurações do banco de dados -->
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/meu_banco?useSSL=false&amp;serverTimezone=UTC"/>
+            <property name="jakarta.persistence.jdbc.user" value="meu_usuario"/>
+            <property name="jakarta.persistence.jdbc.password" value="minha_senha"/>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+
+            <!-- Configurações do Hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            
+            <!-- Cache e otimizações (opcional) -->
+            <property name="hibernate.cache.use_second_level_cache" value="false"/>
+            <property name="hibernate.cache.use_query_cache" value="false"/>
+
+            <!-- Controle de logs -->
+            <property name="hibernate.jdbc.time_zone" value="UTC"/>
+        </properties>
+    </persistence-unit>
+</persistence>
